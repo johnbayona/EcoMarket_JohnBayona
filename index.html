@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoMarket — Compra responsable, vive sostenible</title>
+  <meta name="description" content="EcoMarket: tienda en línea de productos ecológicos, reutilizables y sustentables.">
+
+  <!-- Orden importa: main primero (variables/reset), luego layout,
+       luego components, y animations al final para que pueda sobreescribir
+       transiciones puntuales sin pelear especificidad -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <svg class="logo__mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2C7 2 3 6 3 11c0 5 4 9 9 9s9-4 9-9c0-2-1-4-2-5-1 3-4 5-7 5 2-3 2-6 0-9z"/>
+        </svg>
+        EcoMarket
+      </a>
+
+      <nav class="nav" aria-label="Navegación principal">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link nav__link--active">Inicio</a></li>
+          <li><a href="views/productos.html" class="nav__link">Productos</a></li>
+          <li><a href="views/sobre-nosotros.html" class="nav__link">Nosotros</a></li>
+          <li><a href="views/contacto.html" class="nav__link">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <a href="#" class="icon-btn" aria-label="Buscar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </a>
+        <a href="#" class="icon-btn" aria-label="Carrito de compras">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span class="icon-btn__badge">2</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== HERO ==================== -->
+    <section class="hero">
+
+    <div class="container">
+
+        <div class="hero__content">
+
+            <span class="badge hero__badge">
+                Nueva colección 2026
+            </span>
+
+            <h1 class="hero__title">
+                Naturaleza en cada
+                <span class="hero__highlight">
+                    compra
+                </span>
+            </h1>
+
+            <p class="hero__text">
+                Productos sustentables para un mañana mejor. Elaborados con materiales ecológicos, origen ético y empaques responsables para cuidar el planeta sin renunciar a la calidad.
+            </p>
+
+            <div class="hero__actions">
+
+                <a href="views/productos.html"
+                    class="btn btn--primary">
+
+                    Explorar productos
+
+                </a>
+
+                <a href="views/sobre-nosotros.html"
+                    class="btn btn--outline">
+
+                    Conocer nuestro impacto
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+    <!-- ==================== FILTROS ====================
+         Truco CSS-only: radios ocultos + <label> visual. El primero
+         viene "checked" por defecto para que "Todos" se vea activo
+         al cargar la página. -->
+    <section class="container filters" aria-label="Filtrar por categoría">
+      <ul class="filters__list">
+        <li>
+          <input class="filter-pill__input" type="radio" name="filtro" id="f-todos" checked>
+          <label class="filter-pill__label" for="f-todos">Todos</label>
+        </li>
+        <li>
+          <input class="filter-pill__input" type="radio" name="filtro" id="f-bambu">
+          <label class="filter-pill__label" for="f-bambu">Bambú</label>
+        </li>
+        <li>
+          <input class="filter-pill__input" type="radio" name="filtro" id="f-textiles">
+          <label class="filter-pill__label" for="f-textiles">Textiles</label>
+        </li>
+        <li>
+          <input class="filter-pill__input" type="radio" name="filtro" id="f-cocina">
+          <label class="filter-pill__label" for="f-cocina">Cocina</label>
+        </li>
+        <li>
+          <input class="filter-pill__input" type="radio" name="filtro" id="f-zero">
+          <label class="filter-pill__label" for="f-zero">Cero Residuos</label>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ==================== PRODUCTOS DESTACADOS ==================== -->
+    <section class="container section">
+      <div class="section__header">
+        <div>
+          <h2>Favoritos Destacados</h2>
+          <p>Esenciales ecológicos seleccionados especialmente para ti.</p>
+        </div>
+        <a href="views/productos.html" class="nav__link" style="font-weight:600; color: var(--color-green-700);">Ver todos los productos →</a>
+      </div>
+
+      <div class="product-grid">
+
+        <!-- Card 1 -->
+        <article class="card">
+          <div class="card__media" style="background: linear-gradient(135deg,#e07a3f,#c85f2c);">
+            <span class="badge card__badge">Más vendido</span>
+            <input class="favorite__input" type="checkbox" id="fav-1">
+            <div class="favorite">
+              <label class="favorite__label" for="fav-1" aria-label="Agregar a favoritos">
+                <svg class="favorite__icon-outline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 2.5 5 6 5c2 0 3.5 1 6 3 2.5-2 4-3 6-3 3.5 0 5.5 3.5 3.5 7.5C19 16.65 12 21 12 21z"/></svg>
+                <svg class="favorite__icon-filled" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 2.5 5 6 5c2 0 3.5 1 6 3 2.5-2 4-3 6-3 3.5 0 5.5 3.5 3.5 7.5C19 16.65 12 21 12 21z"/></svg>
+              </label>
+            </div>
+            <svg class="card__media-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4v9a3 3 0 0 0 3 3h1v4M9 16h6M12 16v4M17 5l3-2M17 5l-2 8M17 5l3 3"/></svg>
+          </div>
+          <div class="card__body">
+            <div class="card__top-row">
+              <h3 class="card__title">Set de Cepillos de Bambú</h3>
+              <span class="card__price">$12.00</span>
+            </div>
+            <p class="card__desc">Mangos de bambú Moso de origen ético con cerdas de carbón activado. 100% compostable.</p>
+            <a href="#" class="btn btn--ghost btn--block">Agregar al carrito</a>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card">
+          <div class="card__media" style="background: linear-gradient(135deg,#f0c98a,#e0a95f);">
+            <input class="favorite__input" type="checkbox" id="fav-2">
+            <div class="favorite">
+              <label class="favorite__label" for="fav-2" aria-label="Agregar a favoritos">
+                <svg class="favorite__icon-outline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 2.5 5 6 5c2 0 3.5 1 6 3 2.5-2 4-3 6-3 3.5 0 5.5 3.5 3.5 7.5C19 16.65 12 21 12 21z"/></svg>
+                <svg class="favorite__icon-filled" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 2.5 5 6 5c2 0 3.5 1 6 3 2.5-2 4-3 6-3 3.5 0 5.5 3.5 3.5 7.5C19 16.65 12 21 12 21z"/></svg>
+              </label>
+            </div>
+            <svg class="card__media-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8c4-3 12-3 16 0M6 8v3c0 5 2.5 9 6 9s6-4 6-9V8"/></svg>
+          </div>
+          <div class="card__body">
+            <div class="card__top-row">
+              <h3 class="card__title">Bolsa de Malla de Algodón</h3>
+              <span class="card__price">$8.50</span>
+            </div>
+            <p class="card__desc">Bolsas de malla de algodón orgánico. La compañera perfecta y libre de plástico para el mandado.</p>
+            <a href="#" class="btn btn--ghost btn--block">Agregar al carrito</a>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card">
+          <div class="card__media" style="background: linear-gradient(135deg,#cfd6d2,#a9b6ae);">
+            <span class="badge card__badge">Libre de BPA</span>
+            <input class="favorite__input" type="checkbox" id="fav-3">
+            <div class="favorite">
+              <label class="favorite__label" for="fav-3" aria-label="Agregar a favoritos">
+                <svg class="favorite__icon-outline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 2.5 5 6 5c2 0 3.5 1 6 3 2.5-2 4-3 6-3 3.5 0 5.5 3.5 3.5 7.5C19 16.65 12 21 12 21z"/></svg>
+                <svg class="favorite__icon-filled" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 2.5 5 6 5c2 0 3.5 1 6 3 2.5-2 4-3 6-3 3.5 0 5.5 3.5 3.5 7.5C19 16.65 12 21 12 21z"/></svg>
+              </label>
+            </div>
+            <svg class="card__media-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2h6v4l2 2v12a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V8l2-2Z"/><path d="M7 12h10"/></svg>
+          </div>
+          <div class="card__body">
+            <div class="card__top-row">
+              <h3 class="card__title">Botella de Vidrio</h3>
+              <span class="card__price">$24.00</span>
+            </div>
+            <p class="card__desc">Vidrio borosilicato duradero con funda protectora de silicón. Mantente hidratado, mantente verde.</p>
+            <a href="#" class="btn btn--ghost btn--block">Agregar al carrito</a>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="card">
+          <div class="card__media" style="background: linear-gradient(135deg,#d8c98f,#b9a862);">
+            <input class="favorite__input" type="checkbox" id="fav-4">
+            <div class="favorite">
+              <label class="favorite__label" for="fav-4" aria-label="Agregar a favoritos">
+                <svg class="favorite__icon-outline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 2.5 5 6 5c2 0 3.5 1 6 3 2.5-2 4-3 6-3 3.5 0 5.5 3.5 3.5 7.5C19 16.65 12 21 12 21z"/></svg>
+                <svg class="favorite__icon-filled" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 2.5 5 6 5c2 0 3.5 1 6 3 2.5-2 4-3 6-3 3.5 0 5.5 3.5 3.5 7.5C19 16.65 12 21 12 21z"/></svg>
+              </label>
+            </div>
+            <svg class="card__media-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12 12 4l8 8-8 8-8-8Z"/><path d="M8 12l4-4 4 4-4 4-4-4Z"/></svg>
+          </div>
+          <div class="card__body">
+            <div class="card__top-row">
+              <h3 class="card__title">Envolturas de Cera de Abeja</h3>
+              <span class="card__price">$15.00</span>
+            </div>
+            <p class="card__desc">Alternativa sustentable al plástico film. Lavable, reutilizable y compostable.</p>
+            <a href="#" class="btn btn--ghost btn--block">Agregar al carrito</a>
+          </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="card">
+          <div class="card__media" style="background: linear-gradient(135deg,#6b4a35,#4a3223);">
+            <span class="badge card__badge">Libre de plástico</span>
+            <input class="favorite__input" type="checkbox" id="fav-5">
+            <div class="favorite">
+              <label class="favorite__label" for="fav-5" aria-label="Agregar a favoritos">
+                <svg class="favorite__icon-outline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 2.5 5 6 5c2 0 3.5 1 6 3 2.5-2 4-3 6-3 3.5 0 5.5 3.5 3.5 7.5C19 16.65 12 21 12 21z"/></svg>
+                <svg class="favorite__icon-filled" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 2.5 5 6 5c2 0 3.5 1 6 3 2.5-2 4-3 6-3 3.5 0 5.5 3.5 3.5 7.5C19 16.65 12 21 12 21z"/></svg>
+              </label>
+            </div>
+            <svg class="card__media-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3c3 3 5 6 5 9a5 5 0 0 1-10 0c0-3 2-6 5-9Z"/></svg>
+          </div>
+          <div class="card__body">
+            <div class="card__top-row">
+              <h3 class="card__title">Barra de Shampoo de Cítricos</h3>
+              <span class="card__price">$14.00</span>
+            </div>
+            <p class="card__desc">Barra de shampoo concentrada con aceites esenciales. Rinde hasta 80 lavadas.</p>
+            <a href="#" class="btn btn--ghost btn--block">Agregar al carrito</a>
+          </div>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="card">
+          <div class="card__media" style="background: linear-gradient(135deg,#2f7d6b,#1f5347);">
+            <input class="favorite__input" type="checkbox" id="fav-6">
+            <div class="favorite">
+              <label class="favorite__label" for="fav-6" aria-label="Agregar a favoritos">
+                <svg class="favorite__icon-outline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 2.5 5 6 5c2 0 3.5 1 6 3 2.5-2 4-3 6-3 3.5 0 5.5 3.5 3.5 7.5C19 16.65 12 21 12 21z"/></svg>
+                <svg class="favorite__icon-filled" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 2.5 5 6 5c2 0 3.5 1 6 3 2.5-2 4-3 6-3 3.5 0 5.5 3.5 3.5 7.5C19 16.65 12 21 12 21z"/></svg>
+              </label>
+            </div>
+            <svg class="card__media-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+          </div>
+          <div class="card__body">
+            <div class="card__top-row">
+              <h3 class="card__title">Set de Bolsas de Silicón</h3>
+              <span class="card__price">$24.50</span>
+            </div>
+            <p class="card__desc">Bolsas de silicón reutilizables y a prueba de fugas para reemplazar el plástico desechable.</p>
+            <a href="#" class="btn btn--ghost btn--block">Agregar al carrito</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==================== NEWSLETTER ==================== -->
+    <section class="container">
+      <div class="newsletter">
+        <div>
+          <h2 class="newsletter__title">Únete al Movimiento</h2>
+          <p class="newsletter__text">
+            Suscríbete para recibir eco-tips, alertas de nuevos productos y descuentos exclusivos.
+            Hagamos del planeta un lugar más verde, juntos.
+          </p>
+          <form class="newsletter__form">
+            <label for="newsletter-email" class="sr-only" style="position:absolute; left:-9999px;">Correo electrónico</label>
+            <input class="newsletter__input" type="email" id="newsletter-email" placeholder="Ingresa tu correo" required>
+            <button type="submit" class="btn btn--primary" style="background-color:#1b3b2f;">Suscribirme</button>
+          </form>
+          <p class="newsletter__note">Sin spam, solo buenas noticias verdes.</p>
+        </div>
+        <div class="newsletter__art" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+            <path d="M12 2c0 6-4 8-4 14a4 4 0 0 0 8 0c0-6-4-8-4-14Z"/>
+            <path d="M12 22V10"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <a href="index.html" class="logo">
+          <svg class="logo__mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2C7 2 3 6 3 11c0 5 4 9 9 9s9-4 9-9c0-2-1-4-2-5-1 3-4 5-7 5 2-3 2-6 0-9z"/>
+          </svg>
+          EcoMarket
+        </a>
+        <p class="footer__about" style="margin-top: var(--space-2);">
+          Compras éticas para consumidores conscientes. Creemos en la transparencia
+          y en una calidad que no cuesta el planeta.
+        </p>
+        <ul class="social-list" aria-label="Redes sociales">
+          <li><a href="#" class="social-icon" aria-label="Instagram">Ig</a></li>
+          <li><a href="#" class="social-icon" aria-label="Facebook">Fb</a></li>
+          <li><a href="#" class="social-icon" aria-label="Twitter">Tw</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer__col-title">Tienda</h4>
+        <ul class="footer__link-list">
+          <li><a href="#" class="footer__link">Todos los productos</a></li>
+          <li><a href="#" class="footer__link">Novedades</a></li>
+          <li><a href="#" class="footer__link">Colección de Bambú</a></li>
+          <li><a href="#" class="footer__link">Kits Cero Residuos</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer__col-title">Compañía</h4>
+        <ul class="footer__link-list">
+          <li><a href="views/sobre-nosotros.html" class="footer__link">Sobre nosotros</a></li>
+          <li><a href="#" class="footer__link">Nuestra promesa</a></li>
+          <li><a href="#" class="footer__link">Trabaja con nosotros</a></li>
+          <li><a href="#" class="footer__link">Prensa</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer__col-title">Soporte</h4>
+        <ul class="footer__link-list">
+          <li><a href="views/contacto.html" class="footer__link">Centro de ayuda</a></li>
+          <li><a href="#" class="footer__link">Envíos y devoluciones</a></li>
+          <li><a href="#" class="footer__link">Términos y condiciones</a></li>
+          <li><a href="#" class="footer__link">Política de privacidad</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p>© 2024 EcoMarket Inc. Todos los derechos reservados.</p>
+      <span class="secure">🔒 Pago seguro</span>
+    </div>
+  </footer>
+
+</body>
+</html>
