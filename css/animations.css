@@ -81,3 +81,51 @@
     transition-duration: 0.001ms !important;
   }
 }
+
+/* --------------------------------------------------------------------------
+   Tarjeta de testimonio: mismo criterio que .card (elevar + sombra),
+   pero un poco más sutil porque son tarjetas más chicas.
+   -------------------------------------------------------------------------- */
+.testimonial {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* --------------------------------------------------------------------------
+   Scroll suave dentro del carrusel CSS al navegar con los dots (#anclas)
+   -------------------------------------------------------------------------- */
+.carousel {
+  scroll-behavior: smooth;
+}
+
+/* --------------------------------------------------------------------------
+   Iconos de "principios ecológicos": pequeño giro + color al hover,
+   igual que pide la vista "Sobre Nosotros" (efecto visual al pasar
+   el mouse sobre las tarjetas)
+   -------------------------------------------------------------------------- */
+.principle__icon {
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.principle:hover .principle__icon {
+  transform: rotate(-6deg) scale(1.08);
+  background-color: var(--color-green-500);
+  color: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   Botones de paginación y favoritos ya usan transition en components.css;
+   aquí solo agregamos un pequeño "pop" a los puntos del carrusel activos.
+   -------------------------------------------------------------------------- */
+.map-card__pin {
+  animation: pin-bounce 2.4s ease-in-out infinite;
+}
+
+@keyframes pin-bounce {
+  0%, 100% { transform: translate(-50%, -50%); }
+  50% { transform: translate(-50%, -58%); }
+}
