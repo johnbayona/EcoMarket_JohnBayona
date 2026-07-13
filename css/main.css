@@ -1,0 +1,147 @@
+/* ==========================================================================
+   MAIN.CSS
+   Reset · Variables (Design Tokens) · Tipografía base
+   ========================================================================== */
+
+/* --- Fuentes: una serif con carácter para títulos + una sans limpia para
+   el cuerpo. Se cargan una sola vez aquí porque "main" es la base de todo. */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,500&family=Work+Sans:wght@400;500;600;700&display=swap');
+
+/* --------------------------------------------------------------------------
+   1. RESET
+   Quitamos los márgenes/paddings por defecto del navegador para partir
+   de un lienzo predecible. box-sizing: border-box evita que el padding
+   se sume al ancho declarado (fuente típica de bugs de layout).
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input {
+  font: inherit;
+  border: none;
+  background: none;
+}
+
+/* --------------------------------------------------------------------------
+   2. VARIABLES (DESIGN TOKENS)
+   Centralizamos colores, tipografías, espaciados y bordes en variables CSS.
+   Ventaja: si mañana cambia el verde de marca, se edita en un solo lugar
+   y se actualiza en todo el sitio (header, botones, footer, etc).
+   -------------------------------------------------------------------------- */
+:root {
+  /* Colores de marca — tomados directo de la especificación */
+  --color-green-500: #2ecc71;   /* verde principal (CTAs, acentos) */
+  --color-green-700: #27ae60;   /* verde oscuro (hover, texto sobre claro) */
+  --color-green-900: #1b3b2f;   /* verde casi negro, para textos/hero overlay */
+  --color-beige: #f5f5dc;       /* tierra/beige, secciones de contraste suave */
+
+  /* Neutros — construidos alrededor del beige para que todo se sienta
+     "orgánico" en vez del gris frío típico de un template genérico */
+  --color-bg: #fdfcf7;
+  --color-surface: #ffffff;
+  --color-text: #1f2a24;
+  --color-text-muted: #5c6b62;
+  --color-border: #e4e1d3;
+
+  /* Tipografía */
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Work Sans', sans-serif;
+
+  /* Escala de espaciado (múltiplos de 4px) */
+  --space-1: 0.4rem;
+  --space-2: 0.8rem;
+  --space-3: 1.6rem;
+  --space-4: 2.4rem;
+  --space-5: 4rem;
+  --space-6: 6.4rem;
+
+  /* Bordes y sombras reutilizables */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-full: 999px;
+  --shadow-card: 0 2px 8px rgba(27, 59, 47, 0.06);
+  --shadow-card-hover: 0 16px 32px rgba(27, 59, 47, 0.14);
+
+  /* Ancho máximo de contenido, para no perder alineación en pantallas anchas */
+  --container-width: 1200px;
+}
+
+/* --------------------------------------------------------------------------
+   3. TIPOGRAFÍA BASE
+   -------------------------------------------------------------------------- */
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  /* Mobile-first: por defecto el body no permite scroll horizontal accidental */
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--color-green-900);
+}
+
+h1 { font-size: 2.4rem; }
+h2 { font-size: 1.9rem; }
+h3 { font-size: 1.2rem; }
+
+p {
+  color: var(--color-text-muted);
+}
+
+/* Clase utilitaria: limita el contenido al ancho máximo y lo centra.
+   La vamos a reutilizar en header, secciones y footer (layout.css) */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: var(--space-3);
+}
+
+/* Accesibilidad: foco visible para navegación por teclado */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--color-green-700);
+  outline-offset: 2px;
+}
+
+/* Mobile-first: escalamos la tipografía hacia arriba en pantallas grandes,
+   nunca al revés */
+@media (min-width: 768px) {
+  h1 { font-size: 3.4rem; }
+  h2 { font-size: 2.2rem; }
+}
+
+@media (min-width: 1024px) {
+  h1 { font-size: 4.2rem; }
+}
