@@ -428,3 +428,397 @@
   align-items: center;
   gap: 0.35rem;
 }
+
+/* ==========================================================================
+   CATÁLOGO — sidebar, buscador, badges de stock, favoritos con :target,
+   paginación
+   ========================================================================== */
+
+.sidebar-panel {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.sidebar-panel__title {
+  font-size: 1rem;
+  margin-bottom: var(--space-2);
+}
+
+.check-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding-block: 0.35rem;
+  font-size: 0.92rem;
+  cursor: pointer;
+}
+
+.check-option input {
+  accent-color: var(--color-green-500);
+  width: 16px;
+  height: 16px;
+}
+
+.range-input {
+  width: 100%;
+  accent-color: var(--color-green-500);
+  margin-block: var(--space-2);
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 0.7rem 1.2rem;
+  max-width: 340px;
+}
+
+.search-bar input {
+  flex: 1;
+  font-size: 0.9rem;
+}
+
+.search-bar svg {
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+/* Etiqueta de stock. Una sola clase base + modificador para "agotado",
+   así reutilizamos el mismo componente visual. */
+.stock-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-full);
+  background-color: #e6f7ec;
+  color: var(--color-green-700);
+}
+
+.stock-tag--out {
+  background-color: #fbe7e7;
+  color: #c0392b;
+}
+
+/* Favorito con :target — técnica distinta a la del Home (que usa
+   checkbox + :checked). Aquí el corazón es un <a href="#fav-N">. Al
+   hacer clic, la URL gana el fragmento #fav-N y el navegador marca ese
+   elemento como :target, así podemos cambiarle el color sin JS.
+   Nota didáctica: a diferencia del checkbox, solo UN :target puede
+   estar activo a la vez en toda la página (es la naturaleza del
+   fragmento de URL), así que esta técnica es ideal para practicar el
+   selector, aunque en un catálogo real conviene la técnica de checkbox. */
+.favorite--target {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--color-text);
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.favorite--target:target,
+.favorite--target:active {
+  color: #e74c3c;
+  transform: scale(1.15);
+}
+
+/* Paginación */
+.page-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding-inline: 0.6rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-text);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.page-btn:hover {
+  border-color: var(--color-green-500);
+  color: var(--color-green-700);
+}
+
+.page-btn--active {
+  background-color: var(--color-green-500);
+  border-color: var(--color-green-500);
+  color: #fff;
+}
+
+.page-btn--ellipsis {
+  border-color: transparent;
+  color: var(--color-text-muted);
+  cursor: default;
+}
+
+/* ==========================================================================
+   SOBRE NOSOTROS — principios ecológicos, testimonios/carrusel
+   ========================================================================== */
+
+.principle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.principle__icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background-color: var(--color-beige);
+  color: var(--color-green-700);
+}
+
+.principle__icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.principle__title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.98rem;
+}
+
+.principle__desc {
+  font-size: 0.85rem;
+}
+
+.testimonial {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  height: 100%;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.testimonial__stars {
+  color: #f0b429;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+}
+
+.testimonial__quote {
+  font-style: italic;
+  font-size: 0.92rem;
+}
+
+.testimonial__author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: auto;
+}
+
+.testimonial__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.testimonial__name {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--color-text);
+}
+
+.testimonial__location {
+  font-size: 0.78rem;
+}
+
+.carousel__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-border);
+  display: inline-block;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.carousel__dot:hover,
+.carousel__dot:focus-visible {
+  background-color: var(--color-green-500);
+  transform: scale(1.2);
+}
+
+/* ==========================================================================
+   CONTACTO — formulario con validación visual, tarjeta de mapa,
+   tarjetas de info
+   ========================================================================== */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field__label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.field input,
+.field textarea {
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1rem;
+  font-size: 0.92rem;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 120px;
+  font-family: var(--font-body);
+}
+
+/* Validación visual con :valid/:invalid — pedida explícitamente por la
+   especificación. El truco de buena práctica es combinarla con
+   :not(:placeholder-shown) para que el borde NO se ponga rojo en un
+   campo vacío que el usuario todavía no ha tocado; solo reacciona
+   cuando ya hay contenido escrito. */
+.field input:not(:placeholder-shown):invalid,
+.field textarea:not(:placeholder-shown):invalid {
+  border-color: #e74c3c;
+}
+
+.field input:not(:placeholder-shown):valid,
+.field textarea:not(:placeholder-shown):valid {
+  border-color: var(--color-green-500);
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--color-green-700);
+  box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.15);
+}
+
+.map-card {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: linear-gradient(160deg, #3a3f3d, #14171a);
+  color: #fff;
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-3);
+}
+
+.map-card__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: .6;
+}
+
+.map-card__pin {
+  position: absolute;
+  top: 42%;
+  left: 48%;
+  width: 34px;
+  height: 34px;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+.map-card__info {
+  position: relative;
+  z-index: 1;
+}
+
+.info-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.info-card svg {
+  color: var(--color-green-700);
+  width: 20px;
+  height: 20px;
+}
+
+.info-card__title {
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.info-card__value {
+  font-size: 0.85rem;
+}
+
+/* Variantes de color para .card__media (evita estilos inline por cada tarjeta) */
+.card__media--v1 { background: linear-gradient(135deg, #e07a3f,#c85f2c); }
+.card__media--v2 { background: linear-gradient(135deg, #f0c98a,#e0a95f); }
+.card__media--v3 { background: linear-gradient(135deg, #cfd6d2,#a9b6ae); }
+.card__media--v4 { background: linear-gradient(135deg, #d8c98f,#b9a862); }
+.card__media--v5 { background: linear-gradient(135deg, #6b4a35,#4a3223); }
+.card__media--v6 { background: linear-gradient(135deg, #2f7d6b,#1f5347); }
+.card__media--v7 { background: linear-gradient(135deg, #2b2b2b,#111); }
+.card__media--v8 { background: linear-gradient(135deg, #1f5347,#0f2a23); }
+.card__media--v9 { background: linear-gradient(135deg, #f0e0c0,#e0cf9e); }
+.card__media--v10 { background: linear-gradient(135deg, #274b3f,#122822); }
+.card__media--v11 { background: linear-gradient(135deg, #c9ccc9,#9aa19c); }
+.card__media--v12 { background: linear-gradient(135deg, #3d6b52,#1c3e2d); }
+.card__media--v13 { background: linear-gradient(135deg, #3a5c4d,#1e3129); }
+.card__media--v14 { background: linear-gradient(135deg, #e7e2da,#c9c2b4); }
+.card__media--v15 { background: linear-gradient(135deg, #8a7a63,#5c4f3d); }
+.card__media--v16 { background: linear-gradient(135deg, #d9c9a8,#b6a37a); }
+.card__media--v17 { background: linear-gradient(135deg, #e6a15c,#c67c34); }
+.card__media--v18 { background: linear-gradient(135deg, #264a3d,#0d211a); }
+.card__media--v19 { background: linear-gradient(135deg, #b0b8b2,#7f8a83); }
+.card__media--v20 { background: linear-gradient(135deg, #5b7a63,#31473a); }
+.card__media--v21 { background: linear-gradient(135deg, #efd9b4,#d9b97c); }
+.card__media--v22 { background: linear-gradient(135deg, #3f6b57,#1d3e30); }
+.card__media--v23 { background: linear-gradient(135deg, #cbb994,#a08d63); }
+.card__media--v24 { background: linear-gradient(135deg, #4a6d5c,#233f33); }
+.card__media--v25 { background: linear-gradient(135deg, #e2c08d,#c69c5c); }
+.card__media--v26 { background: linear-gradient(135deg, #345c4a,#152e24); }
