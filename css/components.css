@@ -1,0 +1,430 @@
+/* ==========================================================================
+   COMPONENTS.CSS
+   Piezas reutilizables: logo, botones, tarjetas de producto, badges,
+   favoritos (truco CSS puro), inputs, iconos sociales.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   LOGO
+   -------------------------------------------------------------------------- */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: var(--color-green-900);
+}
+
+.logo__mark {
+  width: 26px;
+  height: 26px;
+  color: var(--color-green-500);
+}
+
+/* --------------------------------------------------------------------------
+   NAVEGACIÓN
+   -------------------------------------------------------------------------- */
+.nav__link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text);
+  padding-block: var(--space-1);
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.nav__link:hover,
+.nav__link--active {
+  color: var(--color-green-700);
+  border-color: var(--color-green-500);
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  color: var(--color-text);
+  position: relative;
+  transition: background-color 0.2s ease;
+}
+
+.icon-btn:hover {
+  background-color: var(--color-beige);
+}
+
+.icon-btn__badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background-color: var(--color-green-500);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --------------------------------------------------------------------------
+   BOTONES
+   Un solo componente .btn con dos variantes (--primary / --outline).
+   Así evitamos duplicar estilos y mantenemos la especificidad baja.
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  padding: 0.9rem 1.8rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn--primary {
+  background-color: var(--color-green-500);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background-color: var(--color-green-700);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(46, 204, 113, 0.35);
+}
+
+.btn--outline {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+}
+
+.btn--outline:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.btn--block {
+  width: 100%;
+}
+
+.btn--ghost {
+  background-color: var(--color-beige);
+  color: var(--color-green-900);
+}
+
+.btn--ghost:hover {
+  background-color: var(--color-green-500);
+  color: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   BADGE (etiqueta flotante "Best Seller", "BPA Free"...)
+   -------------------------------------------------------------------------- */
+.badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-full);
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--color-green-900);
+}
+
+.hero__badge {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   FILTER PILLS
+   Truco 100% CSS: cada pill es un <label> ligado a un <input type="radio">
+   oculto. Al marcarse (:checked) usamos el selector de hermano "+" para
+   cambiar el estilo del label. CERO JavaScript necesario.
+   -------------------------------------------------------------------------- */
+.filter-pill__input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.filter-pill__label {
+  display: inline-flex;
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-border);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.filter-pill__input:checked + .filter-pill__label {
+  background-color: var(--color-green-500);
+  border-color: var(--color-green-500);
+  color: #fff;
+}
+
+.filter-pill__label:hover {
+  border-color: var(--color-green-500);
+}
+
+/* --------------------------------------------------------------------------
+   PRODUCT CARD
+   -------------------------------------------------------------------------- */
+.card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+}
+
+.card__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card__media-icon {
+  width: 45%;
+  height: 45%;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.card__badge {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+}
+
+.card__body {
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex: 1;
+}
+
+.card__top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.card__title {
+  font-size: 1.05rem;
+}
+
+.card__price {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-green-700);
+  white-space: nowrap;
+}
+
+.card__desc {
+  font-size: 0.88rem;
+  flex: 1;
+}
+
+.card .btn {
+  margin-top: var(--space-2);
+}
+
+/* --------------------------------------------------------------------------
+   FAVORITO (corazón) — otro truco CSS puro con checkbox oculto.
+   El SVG "relleno" y el SVG "contorno" se superponen; alternamos su
+   opacidad según :checked, sin ninguna línea de JavaScript.
+   -------------------------------------------------------------------------- */
+.favorite {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+}
+
+.favorite__input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.favorite__label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.favorite__label:hover {
+  transform: scale(1.08);
+}
+
+.favorite__icon-outline,
+.favorite__icon-filled {
+  grid-area: 1 / 1;
+  width: 18px;
+  height: 18px;
+}
+
+.favorite__label {
+  display: grid;
+}
+
+.favorite__icon-filled {
+  color: #e74c3c;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.favorite__icon-outline {
+  color: var(--color-text);
+  opacity: 1;
+  transition: opacity 0.15s ease;
+}
+
+.favorite__input:checked ~ .favorite__label .favorite__icon-filled {
+  opacity: 1;
+}
+
+.favorite__input:checked ~ .favorite__label .favorite__icon-outline {
+  opacity: 0;
+}
+
+/* --------------------------------------------------------------------------
+   NEWSLETTER (caja verde)
+   -------------------------------------------------------------------------- */
+.newsletter {
+  background: linear-gradient(135deg, var(--color-green-500), var(--color-green-700));
+}
+
+.newsletter__title {
+  color: #fff;
+}
+
+.newsletter__text {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.newsletter__input {
+  flex: 1;
+  padding: 0.9rem 1.2rem;
+  border-radius: var(--radius-full);
+  background-color: rgba(255, 255, 255, 0.95);
+  color: var(--color-text);
+}
+
+.newsletter__input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.newsletter__note {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.82rem;
+  margin-top: var(--space-1);
+}
+
+.newsletter__art {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-md);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.newsletter__art svg {
+  width: 55%;
+  height: 55%;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+@media (min-width: 900px) {
+  .newsletter__art {
+    display: flex;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   FOOTER (tipografía y redes sociales)
+   -------------------------------------------------------------------------- */
+.footer__about {
+  font-size: 0.9rem;
+  max-width: 320px;
+}
+
+.footer__col-title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--color-green-900);
+  margin-bottom: var(--space-2);
+}
+
+.footer__link-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.footer__link {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  transition: color 0.2s ease;
+}
+
+.footer__link:hover {
+  color: var(--color-green-700);
+}
+
+.social-list {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-green-900);
+}
+
+.footer__bottom p,
+.footer__bottom .secure {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.secure {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
