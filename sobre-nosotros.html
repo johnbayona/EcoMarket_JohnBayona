@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre Nosotros — EcoMarket</title>
+  <meta name="description" content="Conoce la misión, valores y comunidad de EcoMarket.">
+
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="../index.html" class="logo">
+        <svg class="logo__mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2C7 2 3 6 3 11c0 5 4 9 9 9s9-4 9-9c0-2-1-4-2-5-1 3-4 5-7 5 2-3 2-6 0-9z"/>
+        </svg>
+        EcoMarket
+      </a>
+      <nav class="nav" aria-label="Navegación principal">
+        <ul class="nav__list">
+          <li><a href="../index.html" class="nav__link">Inicio</a></li>
+          <li><a href="productos.html" class="nav__link">Productos</a></li>
+          <li><a href="sobre-nosotros.html" class="nav__link nav__link--active">Nosotros</a></li>
+          <li><a href="contacto.html" class="nav__link">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a href="#" class="icon-btn" aria-label="Buscar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </a>
+        <a href="#" class="icon-btn" aria-label="Carrito de compras">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span class="icon-btn__badge">2</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== INTRO ==================== -->
+    <section class="hero" style="min-height:45vh; background: linear-gradient(180deg, rgba(15,35,25,.5), rgba(15,35,25,.8)), linear-gradient(135deg, #2c5c44, #10261c);">
+      <div class="container hero__content" style="max-width:680px;">
+        <span class="badge hero__badge">Desde 2021</span>
+        <h1>Consumo Consciente</h1>
+        <p style="color: rgba(255,255,255,.85); max-width:520px;">
+          Redefiniendo la forma en que compramos para el planeta. Creemos que cada compra tiene poder.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================== PRINCIPIOS ECOLÓGICOS ==================== -->
+    <section class="container">
+      <div class="principles-grid">
+        <div class="principle">
+          <div class="principle__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4l16 16M20 4 4 20"/></svg>
+          </div>
+          <h3 class="principle__title">Sin Plástico</h3>
+          <p class="principle__desc">Cero plástico en nuestros productos o empaques.</p>
+        </div>
+        <div class="principle">
+          <div class="principle__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="9" r="3"/><circle cx="15" cy="15" r="3"/><path d="M9 12v3M15 9V6"/></svg>
+          </div>
+          <h3 class="principle__title">Comercio Justo</h3>
+          <p class="principle__desc">Salarios éticos y condiciones laborales seguras.</p>
+        </div>
+        <div class="principle">
+          <div class="principle__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c3 3 5 6 5 9a5 5 0 0 1-10 0c0-3 2-6 5-9Z"/></svg>
+          </div>
+          <h3 class="principle__title">100% Vegano</h3>
+          <p class="principle__desc">Libre de crueldad animal y de origen vegetal siempre.</p>
+        </div>
+        <div class="principle">
+          <div class="principle__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M9 10c1-2 5-2 6 0M9 15c1 1 5 1 6 0"/></svg>
+          </div>
+          <h3 class="principle__title">Carbono Neutral</h3>
+          <p class="principle__desc">Compensamos el 100% de las emisiones de nuestros envíos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== HISTORIA (Flexbox) ==================== -->
+    <section class="container">
+      <div class="story">
+        <div class="story__media">
+          <div style="background: var(--color-beige); border-radius: var(--radius-md); aspect-ratio: 4/3; display:flex; align-items:center; justify-content:center;">
+            <svg width="45%" height="45%" viewBox="0 0 24 24" fill="none" stroke="var(--color-green-700)" stroke-width="1.2">
+              <path d="M12 3c0 6-4 8-4 14a4 4 0 0 0 8 0c0-6-4-8-4-14Z"/><path d="M12 22V10"/>
+            </svg>
+          </div>
+        </div>
+        <div class="story__content">
+          <span class="badge" style="background: var(--color-beige); color: var(--color-green-700);">Nuestra Misión</span>
+          <h2 style="margin-top: var(--space-2);">Comprar mejor no debería ser difícil.</h2>
+          <p style="margin-top: var(--space-2);">
+            Solo trabajamos con los productos más limpios y responsables para asegurar un futuro
+            sustentable. Cada artículo es evaluado por su impacto en las personas y el planeta,
+            para que puedas comprar sin dudas.
+          </p>
+          <a href="#" class="nav__link" style="display:inline-block; margin-top:var(--space-2); font-weight:600; color:var(--color-green-700);">Conoce nuestro proceso de selección →</a>
+        </div>
+      </div>
+
+      <div class="story story--reverse">
+        <div class="story__media">
+          <div style="background: linear-gradient(135deg,#e0a95f,#c67c34); border-radius: var(--radius-md); aspect-ratio: 4/3; display:flex; align-items:center; justify-content:center;">
+            <svg width="35%" height="35%" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.2">
+              <rect x="3" y="8" width="18" height="12" rx="1"/><path d="M3 8l9-5 9 5"/>
+            </svg>
+          </div>
+        </div>
+        <div class="story__content">
+          <span class="badge" style="background: var(--color-beige); color: var(--color-green-700);">Eco-Compromiso</span>
+          <h2 style="margin-top: var(--space-2);">Pequeños pasos, grandes saltos.</h2>
+          <p style="margin-top: var(--space-2);">
+            Desde envíos carbono-neutral hasta empaques compostables: cuidamos cada detalle porque
+            creemos que la transparencia es el nuevo estándar del comercio moderno.
+          </p>
+          <ul style="margin-top: var(--space-2); display:flex; flex-direction:column; gap:0.4rem;">
+            <li style="color: var(--color-text-muted); font-size:0.92rem;">✅ Empaques libres de plástico</li>
+            <li style="color: var(--color-text-muted); font-size:0.92rem;">✅ Priorizamos proveedores locales</li>
+            <li style="color: var(--color-text-muted); font-size:0.92rem;">✅ Miembros de 1% for the Planet</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TESTIMONIOS (Carrusel CSS puro) ==================== -->
+    <section class="container section" style="background: var(--color-beige); border-radius: var(--radius-md);">
+      <div class="section__header">
+        <h2>Amor de la Comunidad</h2>
+      </div>
+
+      <ul class="carousel" aria-label="Testimonios de clientes">
+        <li class="carousel__slide" id="slide-1">
+          <div class="testimonial">
+            <span class="testimonial__stars">★★★★★</span>
+            <p class="testimonial__quote">"Por fin una tienda en la que confío. El empaque cero residuos fue una sorpresa encantadora, todo llegó en perfecto estado."</p>
+            <div class="testimonial__author">
+              <span class="testimonial__avatar" style="background: var(--color-green-500);">SJ</span>
+              <div><p class="testimonial__name">Sara Jiménez</p><p class="testimonial__location">Bogotá, CO</p></div>
+            </div>
+          </div>
+        </li>
+        <li class="carousel__slide" id="slide-2">
+          <div class="testimonial">
+            <span class="testimonial__stars">★★★★★</span>
+            <p class="testimonial__quote">"Las bolsas de malla de algodón son fantásticas. Las he usado por meses y siguen como nuevas."</p>
+            <div class="testimonial__author">
+              <span class="testimonial__avatar" style="background: var(--color-green-700);">MT</span>
+              <div><p class="testimonial__name">Mateo Torres</p><p class="testimonial__location">Medellín, CO</p></div>
+            </div>
+          </div>
+        </li>
+        <li class="carousel__slide" id="slide-3">
+          <div class="testimonial">
+            <span class="testimonial__stars">★★★★★</span>
+            <p class="testimonial__quote">"Me encanta la misión y la estética. Se siente bien apoyar una marca que realmente cuida su huella de carbono."</p>
+            <div class="testimonial__author">
+              <span class="testimonial__avatar" style="background: #c67c34;">ER</span>
+              <div><p class="testimonial__name">Elena Rodríguez</p><p class="testimonial__location">Cali, CO</p></div>
+            </div>
+          </div>
+        </li>
+        <li class="carousel__slide" id="slide-4">
+          <div class="testimonial">
+            <span class="testimonial__stars">★★★★★</span>
+            <p class="testimonial__quote">"El shampoo en barra cambió mi rutina de baño por completo. Rinde muchísimo y huele delicioso."</p>
+            <div class="testimonial__author">
+              <span class="testimonial__avatar" style="background: #1f5347;">LP</span>
+              <div><p class="testimonial__name">Laura Pérez</p><p class="testimonial__location">Monterrey, CO</p></div>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <nav class="carousel__dots" aria-label="Navegación del carrusel">
+        <a href="#slide-1" class="carousel__dot" aria-label="Ir al testimonio 1"></a>
+        <a href="#slide-2" class="carousel__dot" aria-label="Ir al testimonio 2"></a>
+        <a href="#slide-3" class="carousel__dot" aria-label="Ir al testimonio 3"></a>
+        <a href="#slide-4" class="carousel__dot" aria-label="Ir al testimonio 4"></a>
+      </nav>
+    </section>
+
+    <!-- ==================== CTA FINAL ==================== -->
+    <section class="container" style="padding-block: var(--space-6); text-align:center;">
+      <h2>¿Listo para hacer un cambio?</h2>
+      <p style="max-width:480px; margin: var(--space-2) auto 0;">Únete a miles de consumidores conscientes que hacen la diferencia en cada compra.</p>
+      <a href="productos.html" class="btn btn--primary" style="margin-top: var(--space-3);">Comprar sustentablemente</a>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <a href="../index.html" class="logo">
+          <svg class="logo__mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2C7 2 3 6 3 11c0 5 4 9 9 9s9-4 9-9c0-2-1-4-2-5-1 3-4 5-7 5 2-3 2-6 0-9z"/>
+          </svg>
+          EcoMarket
+        </a>
+        <p class="footer__about" style="margin-top: var(--space-2);">Compras éticas para consumidores conscientes.</p>
+        <ul class="social-list" aria-label="Redes sociales">
+          <li><a href="#" class="social-icon" aria-label="Instagram">Ig</a></li>
+          <li><a href="#" class="social-icon" aria-label="Facebook">Fb</a></li>
+          <li><a href="#" class="social-icon" aria-label="Twitter">Tw</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer__col-title">Tienda</h4>
+        <ul class="footer__link-list">
+          <li><a href="productos.html" class="footer__link">Todos los productos</a></li>
+          <li><a href="#" class="footer__link">Novedades</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer__col-title">Compañía</h4>
+        <ul class="footer__link-list">
+          <li><a href="sobre-nosotros.html" class="footer__link">Nuestra historia</a></li>
+          <li><a href="contacto.html" class="footer__link">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer__col-title">Soporte</h4>
+        <ul class="footer__link-list">
+          <li><a href="#" class="footer__link">Términos y condiciones</a></li>
+          <li><a href="#" class="footer__link">Política de privacidad</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>© 2024 EcoMarket Inc. Todos los derechos reservados.</p>
+      <span class="secure">🔒 Pago seguro</span>
+    </div>
+  </footer>
+
+</body>
+</html>
