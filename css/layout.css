@@ -212,3 +212,184 @@
     text-align: left;
   }
 }
+
+/* ==========================================================================
+   VISTA: CATÁLOGO DE PRODUCTOS
+   ========================================================================== */
+
+/* Barra superior de la página de catálogo: título + buscador */
+.catalog-topbar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-block: var(--space-4) var(--space-3);
+}
+
+@media (min-width: 900px) {
+  .catalog-topbar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* Layout principal: sidebar + grid de productos.
+   Mobile-first: en móvil el sidebar va ARRIBA del grid, en una sola
+   columna (el <aside> pierde el "sticky" ahí porque no aporta nada en
+   una pantalla angosta). Desde 900px se convierte en 2 columnas reales
+   y el sidebar se vuelve sticky para "acompañar el scroll". */
+.catalog-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  padding-bottom: var(--space-6);
+}
+
+@media (min-width: 900px) {
+  .catalog-layout {
+    grid-template-columns: 260px 1fr;
+    align-items: start;
+  }
+
+  .catalog-sidebar {
+    position: sticky;
+    top: calc(64px + var(--space-3)); /* debajo del header sticky */
+  }
+}
+
+/* Grid de productos: 1 -> 2 -> 4 columnas, exactamente como pide el
+   requerimiento de la vista Catálogo. */
+.catalog-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+@media (min-width: 640px) {
+  .catalog-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1200px) {
+  .catalog-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Paginación visual */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-1);
+  margin-top: var(--space-5);
+}
+
+/* ==========================================================================
+   VISTA: SOBRE NOSOTROS
+   ========================================================================== */
+
+/* Sección "Historia": imagen + texto en Flexbox, tal como pide el
+   requerimiento explícitamente ("Layout Flexbox"). Se apila en móvil. */
+.story {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  align-items: center;
+  padding-block: var(--space-5);
+}
+
+@media (min-width: 900px) {
+  .story {
+    flex-direction: row;
+  }
+  .story--reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+.story__media,
+.story__content {
+  flex: 1;
+  width: 100%;
+}
+
+/* Lista de principios ecológicos: grid que colapsa de 4 a 2 a 1 columnas */
+.principles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  padding-block: var(--space-4);
+  text-align: center;
+}
+
+@media (min-width: 560px) {
+  .principles-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1000px) {
+  .principles-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Carrusel de testimonios 100% CSS: scroll-snap horizontal.
+   El navegador se encarga del "arrastre"/scroll; nosotros solo le
+   decimos dónde debe "encajar" cada tarjeta. */
+.carousel {
+  display: flex;
+  gap: var(--space-3);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-block: var(--space-3);
+  scrollbar-width: thin;
+}
+
+.carousel__slide {
+  flex: 0 0 85%;
+  scroll-snap-align: start;
+  scroll-margin-left: var(--space-3);
+}
+
+@media (min-width: 700px) {
+  .carousel__slide { flex-basis: 45%; }
+}
+
+@media (min-width: 1100px) {
+  .carousel__slide { flex-basis: 31%; }
+}
+
+/* Puntos de navegación del carrusel: son <a href="#slide-id">.
+   Al hacer clic, el navegador desplaza el contenedor con scroll-snap
+   hasta esa tarjeta — sin una sola línea de JavaScript. */
+.carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-1);
+  margin-top: var(--space-2);
+}
+
+/* ==========================================================================
+   VISTA: CONTACTO
+   ========================================================================== */
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  padding-block: var(--space-5);
+}
+
+@media (min-width: 900px) {
+  .contact-layout {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: start;
+  }
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.contact-info__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+}
