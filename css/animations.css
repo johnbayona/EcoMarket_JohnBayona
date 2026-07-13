@@ -1,0 +1,83 @@
+/* ==========================================================================
+   ANIMATIONS.CSS
+   Keyframes y transiciones. Se guardan aparte para poder desactivarlas
+   o ajustarlas sin tocar la estructura (layout.css) ni el look
+   (components.css).
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   HOVER: tarjeta de producto se "eleva"
+   Combinamos transform (translateY) + box-shadow más grande. La
+   transición ya vive en .card__media/.card en components; aquí solo
+   definimos el estado hover para mantener animations.css como la única
+   fuente de "movimiento" del sitio.
+   -------------------------------------------------------------------------- */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* --------------------------------------------------------------------------
+   HOVER: iconos sociales del footer, efecto "scale"
+   -------------------------------------------------------------------------- */
+.social-icon {
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.15);
+  background-color: var(--color-green-500);
+  color: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   ENTRADA SUAVE del contenido del Hero al cargar la página
+   -------------------------------------------------------------------------- */
+@keyframes fade-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero__content > * {
+  animation: fade-slide-up 0.7s ease both;
+}
+
+.hero__content > *:nth-child(1) { animation-delay: 0.05s; }
+.hero__content > *:nth-child(2) { animation-delay: 0.15s; }
+.hero__content > *:nth-child(3) { animation-delay: 0.25s; }
+.hero__content > *:nth-child(4) { animation-delay: 0.35s; }
+
+/* --------------------------------------------------------------------------
+   Botón primario: pequeño "pulso" de sombra al pasar el mouse
+   (la transformación base ya está en components.css, aquí reforzamos
+   el timing para que se sienta orgánico, no mecánico)
+   -------------------------------------------------------------------------- */
+.btn {
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.25s ease,
+              background-color 0.25s ease;
+}
+
+/* --------------------------------------------------------------------------
+   Accesibilidad: si el usuario pidió "reducir movimiento" en su sistema
+   operativo, apagamos todas las animaciones/transiciones.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
