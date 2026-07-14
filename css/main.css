@@ -110,13 +110,14 @@ h1, h2, h3 {
   color: var(--color-green-900);
 }
 
+
 h1 { font-size: 2.4rem; }
 h2 { font-size: 1.9rem; }
 h3 { font-size: 1.2rem; }
 
 p {
   /*color: var(--color-text-muted);*/
-  color:#fdfcf7;
+color: var(--color-green-900);
 
 }
 
